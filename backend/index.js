@@ -10,8 +10,15 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors()); // Allows frontend to talk to backend
-app.use(express.json()); // Allows us to parse JSON in requests
+// NEW CORS CONFIGURATION
+const corsOptions = {
+  origin: [
+    'http://localhost:3000', // for local testing
+    'https://social-orbit-frontend-zeta.vercel.app' // YOUR LIVE VERCEL URL
+  ],
+  optionsSuccessStatus: 200 
+};
+app.use(cors(corsOptions));app.use(express.json()); // Allows us to parse JSON in requests
 
 // DB Connection
 mongoose.connect(process.env.MONGO_URI)
