@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-// The base URL for your backend
 const API = axios.create({ 
   baseURL: 'http://localhost:5000/api' 
 });
 
-// This interceptor adds the login token to every request
 API.interceptors.request.use((req) => {
   const userInfo = localStorage.getItem('userInfo');
   if (userInfo) {

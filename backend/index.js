@@ -3,22 +3,18 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
-// Load env variables
 dotenv.config();
 
-// Initialize app
 const app = express();
 
-// Middleware
-// NEW CORS CONFIGURATION
 const corsOptions = {
   origin: [
-    'http://localhost:3000', // for local testing
+    'http://localhost:3000', 
     'https://social-orbit-frontend-zeta.vercel.app' // YOUR LIVE VERCEL URL
   ],
   optionsSuccessStatus: 200 
 };
-app.use(cors(corsOptions));app.use(express.json()); // Allows us to parse JSON in requests
+app.use(cors(corsOptions));app.use(express.json()); 
 
 // DB Connection
 mongoose.connect(process.env.MONGO_URI)
@@ -33,17 +29,10 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// We will add the real routes below later...
-
-// ... (all the code from before)
-
-// === ADD THIS ===
-// Import routes
 const authRoutes = require('./routes/authRoutes');
 const postRoutes = require('./routes/postRoutes');
 
 // Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
-// === END ADD ===
 

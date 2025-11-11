@@ -6,16 +6,15 @@ const PostSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-  textContent: { type: String }, // [cite: 40]
-  imageUrl: { type: String }, // [cite: 40]
-  // Rule: either text or image is enough [cite: 42]
+  textContent: { type: String },
+  imageUrl: { type: String }, 
   likes: [
-    { type: mongoose.Schema.Types.ObjectId, ref: 'User' } // Stores who liked it [cite: 48]
+    { type: mongoose.Schema.Types.ObjectId, ref: 'User' } 
   ],
   comments: [
     {
       user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-      username: { type: String, required: true }, // Store username for easy display
+      username: { type: String, required: true }, 
       text: { type: String, required: true },
       createdAt: { type: Date, default: Date.now }
     }

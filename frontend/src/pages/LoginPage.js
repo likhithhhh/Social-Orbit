@@ -14,7 +14,6 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 
-// Animation variants for the form
 const formVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
@@ -36,7 +35,6 @@ const LoginPage = () => {
     setLoading(true);
     try {
       await login(formData);
-      // Navigation happens in App.js
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to login.');
       setLoading(false);

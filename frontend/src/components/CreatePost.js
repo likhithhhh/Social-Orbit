@@ -33,7 +33,7 @@ const CreatePost = ({ onPostCreated }) => {
       await api.createPost({ textContent, imageUrl });
       setTextContent('');
       setImageUrl('');
-      onPostCreated(); // Tell FeedPage to refresh
+      onPostCreated(); 
     } catch (err) {
       setError('Failed to create post. Please try again.');
       console.error(err);

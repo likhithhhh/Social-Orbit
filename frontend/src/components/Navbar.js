@@ -14,7 +14,6 @@ const Navbar = () => {
   };
 
   return (
-    // Use 'elevation={0}' for a modern, flat look
     <AppBar position="static" sx={{ bgcolor: 'white', color: 'black' }} elevation={0}> 
       <Toolbar>
         <Typography 

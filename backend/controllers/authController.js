@@ -1,13 +1,10 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-// Helper to generate token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 };
 
-// @desc    Register a new user
-// @route   POST /api/auth/signup
 exports.signup = async (req, res) => {
   const { username, email, password } = req.body;
   try {
@@ -16,7 +13,7 @@ exports.signup = async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    const user = await User.create({ username, email, password }); // [cite: 37, 38]
+    const user = await User.create({ username, email, password }); 
 
     res.status(201).json({
       _id: user._id,
@@ -29,8 +26,6 @@ exports.signup = async (req, res) => {
   }
 };
 
-// @desc    Auth user & get token (Login)
-// @route   POST /api/auth/login
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {

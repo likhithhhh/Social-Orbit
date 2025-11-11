@@ -5,13 +5,12 @@ import PostCard from '../components/PostCard';
 import { Box, CircularProgress, Alert, Typography } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Animation variants for the feed
 const feedVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1 // Each child post fades in 0.1s after the last
+      staggerChildren: 0.1 
     }
   }
 };
@@ -44,7 +43,6 @@ const FeedPage = () => {
     fetchAllPosts();
   }, []);
 
-  // This is passed to CreatePost so it can refresh the feed
   const handlePostCreated = () => {
     fetchAllPosts();
   };
@@ -67,7 +65,6 @@ const FeedPage = () => {
         </Alert>
       )}
 
-      {/* Animated Feed List */}
       <motion.div
         variants={feedVariants}
         initial="hidden"

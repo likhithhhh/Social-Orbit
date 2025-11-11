@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import * as api from '../api'; // This will now work
+import * as api from '../api'; 
 
 const AuthContext = createContext();
 
@@ -63,7 +63,6 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// THIS IS THE LINE THE ERROR WAS ABOUT:
 export const useAuth = () => {
   return useContext(AuthContext);
 };

@@ -16,7 +16,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <CssBaseline /> {/* A nice CSS reset for MUI */}
+        <CssBaseline /> 
         <App />
       </AuthProvider>
     </BrowserRouter>
