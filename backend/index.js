@@ -12,7 +12,7 @@ const corsOptions = {
     'http://localhost:3000', 
     'https://social-orbit-frontend-zeta.vercel.app' // YOUR LIVE VERCEL URL
   ],
-  optionsSuccessStatus: 200 
+  optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));app.use(express.json()); 
 
